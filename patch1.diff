@@ -1,0 +1,1198 @@
+From 5c145f18dbf8b26064b37072b1b74a194de140a4 Mon Sep 17 00:00:00 2001
+From: dam 2 <dam2@aulacampus.com>
+Date: Mon, 9 Jan 2017 10:00:38 +0100
+Subject: [PATCH] Start Game
+
+---
+ .classpath                           |   6 +
+ .project                             |  17 ++
+ .settings/org.eclipse.jdt.core.prefs |  11 +
+ barco1.png                           | Bin 0 -> 3408 bytes
+ barco2.png                           | Bin 0 -> 4276 bytes
+ barco3.png                           | Bin 0 -> 3779 bytes
+ barco4.png                           | Bin 0 -> 3422 bytes
+ bin/BotonAzul.class                  | Bin 0 -> 720 bytes
+ bin/BotonRojo.class                  | Bin 0 -> 719 bytes
+ bin/Panel.class                      | Bin 0 -> 10716 bytes
+ bin/Reglas.class                     | Bin 0 -> 794 bytes
+ src/BotonAzul.java                   |  17 ++
+ src/BotonRojo.java                   |  17 ++
+ src/Panel.java                       | 525 +++++++++++++++++++++++++++++++++++
+ src/Reglas.java                      |  26 ++
+ 15 files changed, 619 insertions(+)
+ create mode 100644 .classpath
+ create mode 100644 .project
+ create mode 100644 .settings/org.eclipse.jdt.core.prefs
+ create mode 100644 barco1.png
+ create mode 100644 barco2.png
+ create mode 100644 barco3.png
+ create mode 100644 barco4.png
+ create mode 100644 bin/BotonAzul.class
+ create mode 100644 bin/BotonRojo.class
+ create mode 100644 bin/Panel.class
+ create mode 100644 bin/Reglas.class
+ create mode 100644 src/BotonAzul.java
+ create mode 100644 src/BotonRojo.java
+ create mode 100644 src/Panel.java
+ create mode 100644 src/Reglas.java
+
+diff --git a/.classpath b/.classpath
+new file mode 100644
+index 0000000..fceb480
+--- /dev/null
++++ b/.classpath
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<classpath>
++	<classpathentry kind="src" path="src"/>
++	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
++	<classpathentry kind="output" path="bin"/>
++</classpath>
+diff --git a/.project b/.project
+new file mode 100644
+index 0000000..58b2288
+--- /dev/null
++++ b/.project
+@@ -0,0 +1,17 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<projectDescription>
++	<name>Hundir_Flota</name>
++	<comment></comment>
++	<projects>
++	</projects>
++	<buildSpec>
++		<buildCommand>
++			<name>org.eclipse.jdt.core.javabuilder</name>
++			<arguments>
++			</arguments>
++		</buildCommand>
++	</buildSpec>
++	<natures>
++		<nature>org.eclipse.jdt.core.javanature</nature>
++	</natures>
++</projectDescription>
+diff --git a/.settings/org.eclipse.jdt.core.prefs b/.settings/org.eclipse.jdt.core.prefs
+new file mode 100644
+index 0000000..3a21537
+--- /dev/null
++++ b/.settings/org.eclipse.jdt.core.prefs
+@@ -0,0 +1,11 @@
++eclipse.preferences.version=1
++org.eclipse.jdt.core.compiler.codegen.inlineJsrBytecode=enabled
++org.eclipse.jdt.core.compiler.codegen.targetPlatform=1.8
++org.eclipse.jdt.core.compiler.codegen.unusedLocal=preserve
++org.eclipse.jdt.core.compiler.compliance=1.8
++org.eclipse.jdt.core.compiler.debug.lineNumber=generate
++org.eclipse.jdt.core.compiler.debug.localVariable=generate
++org.eclipse.jdt.core.compiler.debug.sourceFile=generate
++org.eclipse.jdt.core.compiler.problem.assertIdentifier=error
++org.eclipse.jdt.core.compiler.problem.enumIdentifier=error
++org.eclipse.jdt.core.compiler.source=1.8
+diff --git a/barco1.png b/barco1.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..d05ed721f16594f20b322b698a8e04d09efeb81e
+GIT binary patch
+literal 3408
+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
+
+literal 0
+HcmV?d00001
+
+diff --git a/barco2.png b/barco2.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..7f598b7df61cf364da7a6bd4da268a22e3746ae3
+GIT binary patch
+literal 4276
+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
+WVPtu6$z?nM0000<MNUMnLSTZ;jzEY2
+
+literal 0
+HcmV?d00001
+
+diff --git a/barco3.png b/barco3.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..6b9d80f6af688337f457a1bd31896144556d0e7b
+GIT binary patch
+literal 3779
+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
+
+literal 0
+HcmV?d00001
+
+diff --git a/barco4.png b/barco4.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..8ae8ec4d694ae9bb681c241bb5b2998b5bd7215c
+GIT binary patch
+literal 3422
+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
+
+literal 0
+HcmV?d00001
+
+diff --git a/bin/BotonAzul.class b/bin/BotonAzul.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..bad889d9235f5996fe9039128213df56e38050bd
+GIT binary patch
+literal 720
+zcmaJ<T~8B16g{`ycImRTwWx?6ML@7E%D(tkW70M@K{v((Y+~ZebUT5?btg`zg8nOc
+z0HcXNz#nD2yIV?Qj4yX`zs^1P-1+tU`%eH*uxlenD0P)lap%h<vSATw$KsPX^~NV*
+zeCWM+En*oFiciBhG|ve6Msq;0dTJyc<WX`_K+(n`VJYeJ#EJ3xDmDvPA{0706p;f5
+zm87mpSZVlaStJ;I-)NrE-rH*qN~qzwjb%c42GdiK(k^b`CL?wIPVXh5nzbiW(sbLw
+zE!?)TN?4ue-Bo%dbzcNV>CZ0i;4Uu~Xeo?52u&nMSpnf=M(A?iVcO?q+4jG<UJ*#v
+zoR(biX{PzV;O0j%V?y1<8t$|7V`(m#)c?mMQ)t7*W}=4G_1`>CaJF1*;~{IG;E3S;
+zp;nW4L|C56JjaW#R`J7FzM6a(N_`-Pkz`4H6^Ljc_)P3igO)i8$Am?H_AlB5XJ1Wp
+zAp2p`R-R>c6Vb8GRPy|zz%SnlMYcA3@A&e>?{@0~3oRn6@B_}<nwzh>7bu_M+BdA6
+r<6i3w>*sjzl`C^-u&u#j>#{AQjtaI=MKg`0XlP-FJ;EclIXwOY)dsI*
+
+literal 0
+HcmV?d00001
+
+diff --git a/bin/BotonRojo.class b/bin/BotonRojo.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..bba1b393b5d762f1935ecb56cb3ef6cc2a32e5f0
+GIT binary patch
+literal 719
+zcmaJ<U2hUW6g`(+*s=^1saop?TD28WyDz?BObSX;C8lW`5))sBWm31UJ8>AS{w({@
+z8cqBG{wU*JmQrGjFL!dk&OP_s`SttzPXJG_<snBXcC^*Wo<7nZTte+gev+Sq@o|(K
+z1}}GIqGCefX_Q3v8Nq2Z2L!jPN6LqTqCg%64<$l5?F;0w4SG7UODGfa+a{8+4<E~E
+zU6ruf=ugXH$>96e@Qn7(PIFL14VOKv5Gr$+u8y@4xPq&U)ah?`UlFQVdpc#BZu_`~
+z>mJq!Ym2-)+KiOx$<S)^Mc@W*@?xP;(yD{V#%h!m5I$yv&i5To`+_Xn{ukE^0_mEw
+zk_$e~Y5p&`#gWXIP#3t3J1qTJ*>fiK|1rrFx+`!mRm0hP@jQju5ZJ^6mOh1%;rm0Q
+zC&`GgGE;eh79VZ7A0_Jb<ik*z138QpE7I4Yj0cjh#QrSk+IP{IQ0mXWMVsL7>xl_f
+zFG|}g^UPMNIo6qq!ygL#@~Kc@>#_Hi4^RAVw$8BBB69OT;J>K}rz*}+Il-lGSUtt9
+p)(O^6asMk<=FnhUgUhzWR-leDHc&y6BO*gX3lG^NJYt)}<3InbuL%GE
+
+literal 0
+HcmV?d00001
+
+diff --git a/bin/Panel.class b/bin/Panel.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..3fecb4f5cbde46b0594b9262106a2114e06daff8
+GIT binary patch
+literal 10716
+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
+QBa7&F1QCA~CGy|?AAJ;i9{>OV
+
+literal 0
+HcmV?d00001
+
+diff --git a/bin/Reglas.class b/bin/Reglas.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..bfc396c54ad116e4b7aea3dbdf2154254bb5ec41
+GIT binary patch
+literal 794
+zcmZ8fO>Yx15FIC>Nt2Y)lt7_;m|GJeq5>xp<x&YGv_e2i5J&IsD0Q`2FZQOT{Z~jp
+zr6O_Q$d5ui?*^ox)y&%CH_y*A^XvEJ4<dR>_v=&<wDy)~iE?$S3F;iH6ZL7}PIWpP
+zynL-vP5`hTurKI(uyP!zkdq<KM>^H{SWtDZHx*PnFfli&O0724sZpnm|9OkV25ky)
+zI6BJb$v99>7MC~~b0UuyJTuanR6>_@dbZG<=IrFNQE12eKQHBk6OJNnQYC@Ub!Lz#
+zLuDf)KQ0)i*|PKS$1CvISQ(oX;3Y&xCNYt+o~Ow7IZu%D4%{bv4suR$bqR}&lezIe
+zffac7Q1U#}d=9A!(r4g0lkT5DJZa^=Si4MFW&J&WO-lK~sz`$(^8(pH5r}e@?BL3R
+zoMDr(EnkReVq~Tqw1tpZPz{P|HmOZpzV;nK-Myk`gG8aBliZ@O!`^hA(9AYnp|vJf
+zH`;WQcF;Z*$AbFH40W0h4$M3=DQZ9Ll{BkCL7Rb2`PE_`vOQE`!sv8>Y9>=<wcjs;
+zwfsmsL5-jsHOx$NViq>y=i2AA%J3sUUGxBosu)iJgTP`X{2(E+j@=uo6=%Es3u^Yi
+zQ~N{b>IGf<O56SZ7ux<t-S?jXtI#d@4!}e$_zl{kF5RXb7@<I(eiz>z`~}^Guh6|e
+DlD68`
+
+literal 0
+HcmV?d00001
+
+diff --git a/src/BotonAzul.java b/src/BotonAzul.java
+new file mode 100644
+index 0000000..6def660
+--- /dev/null
++++ b/src/BotonAzul.java
+@@ -0,0 +1,17 @@
++import java.awt.Color;
++import java.awt.Font;
++
++import javax.swing.BorderFactory;
++import javax.swing.JButton;
++import javax.swing.JLabel;
++import javax.swing.JPanel;
++
++public class BotonAzul extends JPanel {
++
++
++	public BotonAzul(){
++		
++		setBorder(BorderFactory.createTitledBorder(null,null,1,2,new Font("Arial", 0, 12),Color.BLACK  ));
++		setBackground(Color.BLUE);
++	}
++}
+diff --git a/src/BotonRojo.java b/src/BotonRojo.java
+new file mode 100644
+index 0000000..a32f3d1
+--- /dev/null
++++ b/src/BotonRojo.java
+@@ -0,0 +1,17 @@
++import java.awt.Color;
++import java.awt.Font;
++
++import javax.swing.BorderFactory;
++import javax.swing.JButton;
++import javax.swing.JLabel;
++import javax.swing.JPanel;
++
++public class BotonRojo extends JPanel{
++	
++public BotonRojo(){
++	setBorder(BorderFactory.createTitledBorder(null,null,1,2,new Font("Arial", 0, 12),Color.BLACK  ));
++	setBackground(Color.RED);
++}
++
++
++}
+diff --git a/src/Panel.java b/src/Panel.java
+new file mode 100644
+index 0000000..6c7fd12
+--- /dev/null
++++ b/src/Panel.java
+@@ -0,0 +1,525 @@
++import java.awt.BorderLayout;
++import java.awt.Color;
++import java.awt.Dimension;
++import java.awt.FlowLayout;
++import java.awt.Font;
++import java.awt.GridLayout;
++import java.awt.event.ActionEvent;
++import java.awt.event.ActionListener;
++import java.awt.event.MouseEvent;
++import java.awt.event.MouseListener;
++
++import javax.swing.BorderFactory;
++import javax.swing.BoxLayout;
++import javax.swing.ImageIcon;
++import javax.swing.JButton;
++import javax.swing.JFrame;
++import javax.swing.JLabel;
++import javax.swing.JMenu;
++import javax.swing.JMenuBar;
++import javax.swing.JMenuItem;
++import javax.swing.JOptionPane;
++import javax.swing.JPanel;
++import javax.swing.JTextField;
++import javax.swing.JToggleButton;
++
++public class Panel extends JFrame implements ActionListener, MouseListener {
++	
++	
++
++	
++	JPanel misBarcos , susBarcos, paneles, botones, estadisticasMisBarcos, estadisticasSusBarcos, estadicticas;
++
++	JButton agua, tocado, hundido, enviar, rival;
++
++	JMenu menuSalir, juego;
++	
++	JMenuBar menu ;
++	
++	JMenuItem salir, reiniciar, reglas;
++
++	JLabel num1, num2, num3, num4, num1_2, num2_2, num3_2, num4_2, barco1_2, barco2_2, barco3_2, barco4_2, infoBotones, valorPanel;
++	
++	JToggleButton barco1, barco2, barco3, barco4;
++	
++	Object [][] arrayMisBotones;
++	
++	Object [][] arraySusBotones;
++	
++	String posicionY, posicionX;
++	
++	String letras[]={"A","B","C","D","E","F","G","H","I","J"};
++	
++	int numeros []={1,2,3,4,5,6,7,8,9};
++	
++	int random1, random2;
++	
++
++	int [][] susDatos={
++			{0,1,0,0,0,0,0,0,0,0},
++			{0,0,0,0,3,0,0,1,0,0},
++			{4,2,2,0,3,0,0,0,0,0},
++			{4,0,0,0,3,0,0,2,0,0},
++			{4,1,0,0,0,0,0,2,0,0},
++			{4,0,0,0,0,0,0,0,0,0},
++			{0,2,0,0,0,1,0,0,3,0},
++			{0,2,0,0,0,0,0,0,3,0},
++			{0,0,0,1,0,0,0,0,3,0},
++			{0,0,0,0,0,0,0,0,0,0},
++	};
++	
++	int [][] misDatos={
++			{0,0,0,0,0,0,0,0,0,0},
++			{0,0,0,0,0,0,0,0,0,0},
++			{0,0,0,0,0,0,0,0,0,0},
++			{0,0,0,0,0,0,0,0,0,0},
++			{0,0,0,0,0,0,0,0,0,0},
++			{0,0,0,0,0,0,0,0,0,0},
++			{0,0,0,0,0,0,0,0,0,0},
++			{0,0,0,0,0,0,0,0,0,0},
++			{0,0,0,0,0,0,0,0,0,0},
++			{0,0,0,0,0,0,0,0,0,0},
++	};
++	
++	
++	
++	public Panel(){
++		super("Hundir la Flota");
++		iniciarGUI();
++		
++	}
++
++	
++	public void iniciarGUI(){
++		
++		
++		
++		menu= new JMenuBar();
++		juego= new JMenu("Juego");
++		menuSalir= new JMenu("Ayuda");
++		salir=new JMenuItem("Salir");
++		reiniciar=new JMenuItem("Reiniciar Juego");
++		reglas= new JMenuItem("Reglas");
++
++		
++		
++		setJMenuBar(menu);
++		menu.add(juego);
++		menu.add(menuSalir);
++		
++		juego.add(reiniciar);
++		
++		
++		menuSalir.add(salir);
++		menuSalir.addSeparator();
++		menuSalir.add(reglas);
++		
++		reglas.addActionListener(this);
++		salir.addActionListener(this);
++	
++		
++	
++		setLayout(new BoxLayout(this.getContentPane(),BoxLayout.PAGE_AXIS));
++		
++		paneles= new JPanel();
++		paneles.setLayout(new BoxLayout(paneles, BoxLayout.LINE_AXIS));
++		
++		misBarcos= new JPanel(new GridLayout(11, 11));
++		
++		
++		
++		
++	
++		
++		misBarcos.add(new JLabel(""));
++		misBarcos.add(new JLabel("A"));
++		misBarcos.add(new JLabel("B"));
++		misBarcos.add(new JLabel("C"));
++		misBarcos.add(new JLabel("D"));
++		misBarcos.add(new JLabel("E"));
++		misBarcos.add(new JLabel("F"));
++		misBarcos.add(new JLabel("G"));
++		misBarcos.add(new JLabel("H"));
++		misBarcos.add(new JLabel("I"));
++		misBarcos.add(new JLabel("J"));
++		
++		arrayMisBotones= new Object[10][10];
++		
++
++		
++			for(int i=0;i<arrayMisBotones.length;i++){
++				arrayMisBotones[i][0]= new JLabel(String.valueOf(i));
++				
++				misBarcos.add((JLabel)arrayMisBotones[i][0]);
++				for(int j=0;j<arrayMisBotones[i].length;j++){
++					
++				
++					
++					arrayMisBotones[i][j]= new JButton();
++					((JButton)arrayMisBotones[i][j]).setBackground(Color.BLUE);
++				((JButton)arrayMisBotones[i][j]).addActionListener(this);
++					misBarcos.add((JButton)arrayMisBotones[i][j]);
++					((JButton)arrayMisBotones[i][j]).setActionCommand(i+","+j);
++				}
++			
++			}
++		
++			
++		
++			
++		
++		misBarcos.setBorder(BorderFactory.createTitledBorder(null," Mis Barcos ",1,2,new Font("Arial", 0, 12),Color.BLACK  ));
++		
++		susBarcos= new JPanel(new GridLayout(11, 11));
++		
++	
++		
++		susBarcos.add(new JLabel(""));
++		susBarcos.add(new JLabel("A"));
++		susBarcos.add(new JLabel("B"));
++		susBarcos.add(new JLabel("C"));
++		susBarcos.add(new JLabel("D"));
++		susBarcos.add(new JLabel("E"));
++		susBarcos.add(new JLabel("F"));
++		susBarcos.add(new JLabel("G"));
++		susBarcos.add(new JLabel("H"));
++		susBarcos.add(new JLabel("I"));
++		susBarcos.add(new JLabel("J"));
++		
++		
++
++		arraySusBotones= new Object[10][10];
++		
++		for(int i=0;i<arraySusBotones.length;i++){
++			arraySusBotones[i][0]= new JLabel(String.valueOf(i));
++			susBarcos.add((JLabel)arraySusBotones[i][0]);
++			
++			for(int j=0;j<arraySusBotones[i].length;j++){
++				
++			
++				
++				arraySusBotones[i][j]= new JButton();
++				((JButton)arraySusBotones[i][j]).setBackground(Color.BLUE);
++			((JButton)arraySusBotones[i][j]).addActionListener(this);
++			((JButton)arraySusBotones[i][j]).setActionCommand(i+","+j);
++			
++			susBarcos.add((JButton)arraySusBotones[i][j]);
++			
++			}
++		
++		}
++			
++
++		susBarcos.setBorder(BorderFactory.createTitledBorder(null," Sus Barcos ",1,2,new Font("Arial", 0, 12),Color.BLACK  ));
++		
++	
++		paneles.add(misBarcos);
++		paneles.add(susBarcos);
++		
++		add(paneles);
++		
++		botones= new JPanel();
++		
++		botones.setLayout(new BoxLayout(botones, BoxLayout.PAGE_AXIS));
++	
++		JPanel botonesPanel= new JPanel();
++		JPanel jugada= new JPanel();
++		jugada.setLayout(new BoxLayout(jugada, BoxLayout.LINE_AXIS));
++		JLabel movimientos= new JLabel("¿Que movimiento deseas realizar?");
++		
++		jugada.add(movimientos);
++		JTextField introJugada= new JTextField(10);
++		//introJugada.setBounds(200, 200, 50, 20);
++		jugada.add(introJugada);
++		 infoBotones= new JLabel("La informacion sobre los ultimos movimientos");
++	
++	
++		
++		 tocado = new JButton("Tocado");
++		 agua = new JButton("Agua");
++		 hundido = new JButton("Hundido");
++		 JLabel vacio= new JLabel("                     ");
++		 enviar= new JButton("Enviar");
++		 rival=new JButton("Turno Maquina");
++		 
++		 tocado.addActionListener(this);
++		 agua.addActionListener(this);
++		 hundido.addActionListener(this);
++		 enviar.addActionListener(this);
++		 rival.addActionListener(this);
++		 
++		 botonesPanel.add(tocado);
++		 botonesPanel.add(agua);
++		 botonesPanel.add(hundido);
++		 botonesPanel.add(vacio);
++		 botonesPanel.add(enviar);
++		 botonesPanel.add(rival);
++		 
++		 botones.add(botonesPanel);
++		 botones.add(jugada);
++		 botones.add(infoBotones);
++		
++		
++	
++		
++		estadicticas= new JPanel();
++		estadicticas.setLayout(new BoxLayout(estadicticas, BoxLayout.LINE_AXIS));
++		
++	
++		
++		estadisticasMisBarcos= new JPanel();
++		estadisticasMisBarcos.setBorder(BorderFactory.createTitledBorder(null,"Mis Barcos Hundidos",1,2,new Font("Arial", 0, 12),Color.BLACK  ));
++		estadisticasMisBarcos.setLayout(new GridLayout(4, 2));
++		
++		num1= new JLabel("");
++		
++		
++		
++		
++		estadisticasSusBarcos= new  JPanel();
++		estadisticasSusBarcos.setLayout(new GridLayout(4, 2));
++		estadisticasSusBarcos.setBorder(BorderFactory.createTitledBorder(null,"Sus Barcos Hundidos",1,2,new Font("Arial", 0, 12),Color.BLACK  ));
++		
++		
++		estadicticas.add(estadisticasMisBarcos);
++		estadicticas.add(estadisticasSusBarcos);
++		
++	
++		
++		num1= new JLabel("");
++		
++		num2= new JLabel("");
++		num3= new JLabel("");
++		num4= new JLabel("");
++		
++		barco1=new JToggleButton();
++		barco2= new JToggleButton();
++		barco3= new JToggleButton();
++		barco4 = new  JToggleButton();
++		
++		ImageIcon imagen1= new ImageIcon("barco1.png");
++		barco1.setIcon(imagen1);
++		
++		ImageIcon imagen2= new ImageIcon("barco2.png");
++		barco2.setIcon(imagen2);
++		
++		ImageIcon imagen3= new ImageIcon("barco3.png");
++		barco3.setIcon(imagen3);
++		
++		ImageIcon imagen4= new ImageIcon("barco4.png");
++		barco4.setIcon(imagen4);
++		
++
++	
++		estadisticasMisBarcos.add(num1);
++		estadisticasMisBarcos.add(barco1);
++		estadisticasMisBarcos.add(num2);
++		estadisticasMisBarcos.add(barco2);
++		estadisticasMisBarcos.add(num3);
++		estadisticasMisBarcos.add(barco3);
++		estadisticasMisBarcos.add(num4);
++		estadisticasMisBarcos.add(barco4);
++		
++		
++		
++		num1_2= new JLabel("");
++		
++		num2_2= new JLabel("");
++		num3_2= new JLabel("");
++		num4_2= new JLabel("");
++		
++		barco1_2=new JLabel();
++		barco2_2= new JLabel();
++		barco3_2= new JLabel();
++		barco4_2 = new  JLabel();
++		
++		ImageIcon imagen1_2= new ImageIcon("barco1.png");
++		barco1_2.setIcon(imagen1);
++		
++		ImageIcon imagen2_2= new ImageIcon("barco2.png");
++		barco2_2.setIcon(imagen2);
++		
++		ImageIcon imagen3_2= new ImageIcon("barco3.png");
++		barco3_2.setIcon(imagen3);
++		
++		ImageIcon imagen4_2= new ImageIcon("barco4.png");
++		barco4_2.setIcon(imagen4);
++		
++		estadisticasSusBarcos.add(num1_2);
++		estadisticasSusBarcos.add(barco1_2);
++		estadisticasSusBarcos.add(num2_2);
++		estadisticasSusBarcos.add(barco2_2);
++		estadisticasSusBarcos.add(num3_2);
++		estadisticasSusBarcos.add(barco3_2);
++		estadisticasSusBarcos.add(num4_2);
++		estadisticasSusBarcos.add(barco4_2);
++		
++		add(botones);
++		add(estadicticas);
++		
++		setSize(800, 800);
++		setDefaultCloseOperation(EXIT_ON_CLOSE);
++		setLocationRelativeTo(null);
++		setVisible(true);
++		
++	}
++
++	
++	@Override
++	public void actionPerformed(ActionEvent e) {
++		// TODO Auto-generated method stub
++		
++			if(barco1.isSelected()){
++				 String coordenadas[]= e.getActionCommand().split(",");
++					
++				 posicionX= coordenadas[0];
++				 posicionY=coordenadas[1];
++				 
++					if(posicionX==coordenadas[0] && posicionY==coordenadas[1]){
++						((JButton)arrayMisBotones[Integer.valueOf(posicionX)][Integer.valueOf(posicionY)]).setBackground(Color.YELLOW);
++						misDatos[Integer.valueOf(posicionX)][Integer.valueOf(posicionY)]=1;
++					}
++						
++					 
++			}
++					
++					
++					
++			if(barco2.isSelected()){
++						String coordenadas[]= e.getActionCommand().split(",");
++						
++						 posicionX= coordenadas[0];
++						 posicionY=coordenadas[1];
++						 
++						if(posicionX==coordenadas[0] && posicionY==coordenadas[1]){
++							((JButton)arrayMisBotones[Integer.valueOf(posicionX)][Integer.valueOf(posicionY)]).setBackground(Color.GREEN);
++							misDatos[Integer.valueOf(posicionX)][Integer.valueOf(posicionY)]=2;
++						}
++						
++						 
++			}
++					
++				
++			if(barco3.isSelected()){
++						String coordenadas[]= e.getActionCommand().split(",");
++		
++						 posicionX= coordenadas[0];
++						 posicionY=coordenadas[1];
++						 
++						if(posicionX==coordenadas[0] && posicionY==coordenadas[1]){
++							((JButton)arrayMisBotones[Integer.valueOf(posicionX)][Integer.valueOf(posicionY)]).setBackground(Color.PINK);
++							misDatos[Integer.valueOf(posicionX)][Integer.valueOf(posicionY)]=3;
++						}
++						
++						
++			}
++					
++			if(barco4.isSelected()){
++						String coordenadas[]= e.getActionCommand().split(",");
++						
++						 posicionX= coordenadas[0];
++						 posicionY=coordenadas[1];
++						 
++						if(posicionX==coordenadas[0] && posicionY==coordenadas[1]){
++							((JButton)arrayMisBotones[Integer.valueOf(posicionX)][Integer.valueOf(posicionY)]).setBackground(Color.ORANGE);
++							misDatos[Integer.valueOf(posicionX)][Integer.valueOf(posicionY)]=4;
++						}
++						
++			}	
++		
++	
++	
++		 
++			if(e.getSource()== reiniciar){
++				
++				 for(int i=0;i<misDatos.length;i++){
++					 for(int j=0;j<misDatos[i].length;j++){
++						
++							
++							misDatos[i][j]=0;
++							if(misDatos[i][j]==0){
++								((JButton)arrayMisBotones[i][j]).setBackground(Color.BLUE);
++							}
++					 }}
++				
++			}
++			 
++			if(e.getSource()==agua){
++				infoBotones.setText("La celda que has seleccionado es agua");
++			}
++			
++			if(e.getSource()== tocado){
++				infoBotones.setText("La celda que has seleccionado ha tocado a un barco");
++			}
++			
++			if(e.getSource()==hundido){
++				infoBotones.setText("La celda que has seleccionado ha hundido un barco");
++			
++			}
++			 
++			if(e.getSource() == salir){
++				System.exit(0);
++			}
++			
++
++	
++		
++			if(e.getSource()== reglas){
++			
++			JOptionPane.showMessageDialog(this, new Reglas(), "Reglas", JOptionPane.QUESTION_MESSAGE);
++			}
++			
++			if(e.getSource()==rival){
++				
++				random1=(int)(Math.random()*9+1);
++				random2=(int)(Math.random()*9+1);
++				
++				String letraSeleccionada=letras[random1];
++				String numeroSelecciado=String.valueOf(numeros[random2]);
++				
++				
++				infoBotones.setText("El rival ha seleccionado la celda "+letraSeleccionada+numeroSelecciado);
++			}
++			
++		
++		 
++		
++		
++	}
++	
++	
++	public static void main(String[]args){
++		Panel p1= new Panel();
++	}
++
++	@Override
++	public void mouseClicked(MouseEvent e) {
++		// TODO Auto-generated method stub
++			
++	}
++
++	@Override
++	public void mouseEntered(MouseEvent e) {
++		// TODO Auto-generated method stub
++		
++	}
++
++	@Override
++	public void mouseExited(MouseEvent e) {
++		// TODO Auto-generated method stub
++		
++	}
++
++	@Override
++	public void mousePressed(MouseEvent e) {
++		// TODO Auto-generated method stub
++		
++	}
++
++	@Override
++	public void mouseReleased(MouseEvent e) {
++		// TODO Auto-generated method stub
++		
++	}
++	
++}
+diff --git a/src/Reglas.java b/src/Reglas.java
+new file mode 100644
+index 0000000..df0558d
+--- /dev/null
++++ b/src/Reglas.java
+@@ -0,0 +1,26 @@
++import javax.swing.JDialog;
++import javax.swing.JLabel;
++import javax.swing.JPanel;
++
++public class Reglas extends JPanel{
++
++	JLabel regla1;
++	
++	
++	
++	public Reglas(){
++		
++		regla1= new JLabel("<html>Las reglas del juego son las siguientes :<br>"
++				+"1º Selecciona el tipo de barco que quieres<br>"
++				+"2º Seleccionador donde quieres colocar el barco<br>"
++				+"3º Una vez tienes colocados todos los barcos, empiezas a jugar y seleccionas donde quieres disparar<br>"
++				+"<br>"
++				+"<br>"
++				+"   Gracias por descargarte este juego y espero que te lo pases bien<br></html>");
++		
++		add(regla1);
++		
++		
++	}
++	
++}
+-- 
+2.8.1.windows.1
+
